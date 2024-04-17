@@ -16,8 +16,8 @@ def subsetSum(A, n, M):#n is number of elements in array
     if M == 0:#it means we have found the required subset
         return set()
     if n == 0 and M != 0:
-        return None# it means fail
-    if A[n-1] > M: #to check whether the last element in array is greater than M, it yes, then we cannot include it
+        return None# it means fail to find the required subset
+    if A[n-1] > M: #to check whether the last element in array is greater than M, if yes, then we cannot include it (because it is impossible to say A[n-1] can form part of M)
         return subsetSum(A, n-1, M)
     else:
         subset1 = subsetSum(A, n-1, M)#exclude the last element in subset, then we continue
