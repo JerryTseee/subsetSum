@@ -20,6 +20,7 @@ def subsetSum(A, n, M):#n is number of elements in array
     if A[n-1] > M: #to check whether the last element in array is greater than M, if yes, then we cannot include it (because it is impossible to say A[n-1] can form part of M)
         return subsetSum(A, n-1, M)
     else:
+        #logic: "one jump, one not jump :)"
         subset1 = subsetSum(A, n-1, M)#exclude the last element in subset, then we continue
         subset2 = subsetSum(A, n-1, M - A[n-1])#include the last element in subset, so we minus
         if subset2 is not None:#we found that a sums up to M - A[n-1], then we add back A[n-1]
